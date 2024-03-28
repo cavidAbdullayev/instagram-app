@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    username: root
+    password: e9fx8ud1zegr
+    url: jdbc:mysql://localhost:3306/instagram_app
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
