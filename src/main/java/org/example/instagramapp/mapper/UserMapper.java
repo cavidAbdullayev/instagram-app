@@ -9,7 +9,7 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 @Mapper(componentModel = "spring",
 nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface UserMapper {
-    Users mapToUser(CreateUserRequest request)
+    Users mapToUser(CreateUserRequest req);
 
     GetUserResponse mapToResponse(Users user);
 }
