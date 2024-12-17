@@ -14,10 +14,9 @@ import static org.example.instagramapp.global.GlobalData.hostEmail;
 
 @Service
 @RequiredArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
 public class EmailServiceImpl implements EmailService {
 
-    JavaMailSender mailSender;
+    private final JavaMailSender mailSender;
 
     @SneakyThrows
     @Override

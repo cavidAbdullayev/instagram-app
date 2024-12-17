@@ -1,6 +1,7 @@
 package org.example.instagramapp.model.request.user;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -20,6 +21,6 @@ public class CreateUserRequest {
     String phoneNumber;
     @NotBlank
     String email;
-    @NotBlank
+    @NotNull
     Integer activeTypeId;
 }

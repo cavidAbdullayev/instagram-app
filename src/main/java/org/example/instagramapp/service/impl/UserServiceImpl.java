@@ -46,19 +46,27 @@ public class UserServiceImpl implements UserService {
     UserServiceHelper userServiceHelper;
 
     @Override
-    @Transactional
     public CreateUserRequest registration(CreateUserRequest request) {
-        Users user = userMapper.mapToUser(request);
+
+        Users user = Users.builder()
+                .username(request.getUsername())
+                .id(9)
+                .name(request.getName())
+                .password(request.getPassword())
+                .phoneNumber(request.getPhoneNumber())
+                .email(request.getEmail())
+                .build();
         userServiceHelper.setActiveType(user, request.getActiveTypeId());
         Token token = tokenHelper.getTokenBuild(user);
-        tokenRepository.save(token);
         EmailRequest emailRequest = emailServiceHelper.sendEmailToVerify(user, token.getToken());
+        System.out.println(emailRequest);
         emailService.sendEmail(emailRequest);
         userRepository.save(user);
+        tokenRepository.save(token);
         return request;
     }
-
     @Override
+    @Transactional
     public void confirmation(String token) {
         Token confirmationToken = tokenService.getToken(token);
         Users user = confirmationToken.getUser();

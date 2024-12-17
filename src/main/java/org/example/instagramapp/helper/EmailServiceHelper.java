@@ -21,7 +21,6 @@ public class EmailServiceHelper {
 
     public EmailRequest sendEmailToVerify(Users user, String token) {
         String url = http + host + getServerPort() + confirmation + token;
-
         return EmailRequest.builder()
                 .to(user.getEmail())
                 .subject(SubjectEnum.REGISTRATION.name())

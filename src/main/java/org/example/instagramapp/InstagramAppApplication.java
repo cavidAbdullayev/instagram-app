@@ -17,8 +17,8 @@ public class InstagramAppApplication {
 
 	}
 
-	@Bean
-	public JavaMailSender get() {
-		return new JavaMailSenderImpl();
-	}
+//	@Bean
+//	public JavaMailSender get() {
+//		return new JavaMailSenderImpl();
+//	}
 }

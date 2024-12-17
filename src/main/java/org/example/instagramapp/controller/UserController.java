@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user/")
+@RequestMapping("/user")
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE,makeFinal = true)
 public class UserController {
@@ -24,7 +24,7 @@ public class UserController {
         return userService.registration(request);
     }
 
-    @PostMapping("/confirmation")
+    @GetMapping("/confirmation")
     public void confirmation(@RequestParam String token) {
         userService.confirmation(token);
     }
